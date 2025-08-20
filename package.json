@@ -1,0 +1,20 @@
+{
+  "name": "skilllink-fullstack",
+  "version": "1.0.0",
+  "description": "Full-stack micro-internship platform",
+  "scripts": {
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "install-deps": "cd backend && npm install && cd ../frontend && npm install",
+    "build": "cd frontend && npm run build",
+    "start": "cd backend && npm start",
+    "heroku-postbuild": "npm run install-deps && npm run build"
+  },
+  "engines": {
+    "node": "18.x"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
