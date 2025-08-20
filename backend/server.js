@@ -12,7 +12,15 @@ connectDB();
 const app = express();
 
 // Middleware
-app.use(cors());
+app.use(cors({
+  origin: [
+    'http://localhost:5173',
+    'https://skilllink-git-main-akshay-j-kulkarnis-projects.vercel.app',
+    'https://skilllink-ffhw52jua-akshay-j-kulkarnis-projects.vercel.app',
+    /\.vercel\.app$/
+  ],
+  credentials: true
+}));
 app.use(express.json());
 
 // Routes
