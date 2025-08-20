@@ -20,6 +20,20 @@ app.use('/api/auth', require('./routes/authRoutes'));
 app.use('/api/gigs', require('./routes/gigRoutes'));
 app.use('/api/applications', require('./routes/applicationRoutes'));
 
+// Root route
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'SkillLink Backend API', 
+    status: 'Running',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      gigs: '/api/gigs',
+      applications: '/api/applications'
+    }
+  });
+});
+
 // Health check
 app.get('/api/health', (req, res) => {
   res.json({ message: 'SkillLink API is running!' });
